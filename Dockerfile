@@ -5,7 +5,7 @@ RUN yum clean all && yum -y update
 RUN composer global require "laravel/installer=~1.1"
 RUN composer global require "laravel-ja/comja5:~1"
 
-RUN mkdir /var/www_tmp &&  cd /var/www_tmp && composer create-project laravel/laravel laravel "5.4.*" --prefer-dist && comja5
+RUN mkdir /var/www_tmp &&  cd /var/www_tmp && composer create-project laravel/laravel laravel "5.4.*" --prefer-dist && comja5 && echo “”
 
 VOLUME /var/www
 
