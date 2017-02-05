@@ -2,7 +2,7 @@
 
 ### Laravel5 on PHP7 ,Apache2.4, CentOS7
 
-- Laravel5.4.X（日本語化）
+- Laravel5.X.X（日本語化）
 - Systemd導入
 - Crond導入
 - コンテナ内OSの設定なども可能な部分はロケールを日本に
@@ -46,6 +46,8 @@ data:
     - /var/lib/mysql
     - /var/www/html
 ```
+
+Laravel最新バージョンは5.4.9です。5.3、5.2を利用する際はタグを指定してください。
 
 自前のLaravelプロジェクトファイルを使う場合（その場合がほとんどでしょうが）、
 httpdコンテナの/var/www/laravelにマウントさせてください。
