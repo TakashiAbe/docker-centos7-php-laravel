@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e
+set -eu
 
 if [ ! -e /var/www/laravel ]; then
   mv /var/www_tmp/laravel /var/www
