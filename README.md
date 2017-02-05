@@ -2,10 +2,10 @@
 
 ### Laravel5 on PHP7 ,Apache2.4, CentOS7
 
-- Laravel5.4（日本語化）
+- Laravel5.4.X（日本語化）
 - Systemd導入
 - Crond導入
-- 日本語化
+- コンテナ内OSの設定なども可能な部分はロケールを日本に
 - タイムゾーンを東京へ変更
 - gitインストール
 - Apache2.4
@@ -63,10 +63,10 @@ Apacheのdocument_root は /var/www/html です。
 このコンテナでは/var/www/laravel/publicへのシンボリックリンクを張っています。
 ということで、ホストにマウントした場合はプロジェクトファイルのpublicディレクトリがドキュメントルートになります。
 
-systemdが動きますので、Apacheの（リロード|リスタート）は
+systemdが動きますので、ホストからのApacheの（リロード|リスタート）は
 
 ```
-docker exec -it centos7-apache systemctl (reload|restart) httpd.service
+docker exec -it laravel5-httpd systemctl (reload|restart) httpd.service
 ```
 
 です。
