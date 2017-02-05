@@ -14,7 +14,7 @@ if [ ! -e /var/www/laravel ]; then
   sed -i -e "s/'DB_USERNAME', 'forge'/'DB_USERNAME', '${MYSQL_ENV_MYSQL_USER}'/g" /var/www/laravel/config/database.php
   sed -i -e "s/'DB_PASSWORD', ''/'DB_PASSWORD', '${MYSQL_ENV_MYSQL_ROOT_PASSWORD}'/g" /var/www/laravel/config/database.php
   sed -i -e "s/'charset' => 'utf8'/'charset' => 'utf8mb4'/g" /var/www/laravel/config/database.php
-  sed -i -e “s/'en'/'ja'/g” /var/www/laravel/config/app.php
+  sed -i -e "s/'en'/'ja'/g" /var/www/laravel/config/app.php
 fi
 
 if [ -e /var/www/html ]; then

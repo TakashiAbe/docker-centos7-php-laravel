@@ -15,7 +15,7 @@
 
 ```
 httpd:
-  image: takashiabe/centos7-apache-php-laravel
+  image: takashiabe/centos7-apache-laravel
   container_name : laravel5-httpd
   hostname: laravel5-httpd
   privileged: true
@@ -30,6 +30,8 @@ httpd:
 db:
   image: mysql:5.7
   container_name : laravel5-db
+  ports:
+    - 13306:3306
   volumes_from:
     - data
   environment:
