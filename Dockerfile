@@ -2,7 +2,7 @@ FROM takashiabe/centos7-apache-php
 
 RUN yum clean all && yum -y update
 
-RUN mkdir /var/www_tmp &&  cd /var/www_tmp && composer create-project "laravel/laravel=5.3.*" --prefer-dist laravel
+RUN mkdir /var/www_tmp &&  cd /var/www_tmp && composer create-project "laravel/laravel=5.3.30” --prefer-dist laravel
 
 RUN cd /var/www_tmp/laravel && composer require "laravel-ja/comja5:~1"
 COPY ./gulpfile.js /var/www_tmp/laravel/
