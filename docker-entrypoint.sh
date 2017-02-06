@@ -18,7 +18,9 @@ if [ ! -e /var/www/laravel ]; then
 fi
 
 if [ -e /var/www/html ]; then
-#  umount /var/www/html
+  if mount | grep /var/www/html > /dev/null; then
+   umount /var/www/html
+  fi
   rm -rf /var/www/html
   cd /var/www && ln -s /var/www/laravel/public html
   chmod -R a+w /var/www/laravel/bootstrap/cache
