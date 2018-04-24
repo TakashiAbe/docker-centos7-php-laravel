@@ -1,12 +1,13 @@
 FROM takashiabe/centos7-apache-php
 
-RUN yum clean all && yum -y update
+RUN curl -sL https://rpm.nodesource.com/setup_8.x | bash -
+RUN yum -y update && yum -y install nodejs gcc gcc-c++ make openssl-devel libpng libpng-devel && yum clean all && rm -rf /var/cache/yum
 
 RUN mkdir /var/www_tmp &&  cd /var/www_tmp && composer create-project "laravel/laravel=5.6.*" --prefer-dist laravel
 
 RUN cd /var/www_tmp/laravel && composer require "laravel-ja/comja5:~1"
 COPY ./gulpfile.js /var/www_tmp/laravel/
-RUN cd /var/www_tmp/laravel && ./vendor/bin/comja5 -c
+RUN cd /var/www_tmp/laravel && ./vendor/bin/comja5 -c && npm install --no-bin-links
 
 COPY ./docker-entrypoint.sh /
 
