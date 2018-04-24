@@ -1,7 +1,7 @@
 FROM takashiabe/centos7-apache-php
 
 RUN curl -sL https://rpm.nodesource.com/setup_8.x | bash -
-RUN yum -y update && yum -y install nodejs gcc gcc-c++ make openssl-devel libpng libpng-devel autogen && yum clean all && rm -rf /var/cache/yum
+RUN yum -y update && yum -y install nodejs gcc gcc-c++ make openssl-devel libpng libpng-devel autogen libtool && yum clean all && rm -rf /var/cache/yum
 
 RUN mkdir /var/www_tmp &&  cd /var/www_tmp && composer create-project "laravel/laravel=5.6.*" --prefer-dist laravel
 
